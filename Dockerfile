@@ -2,19 +2,19 @@
 FROM node:14
 
 # Définir le répertoire de travail sur /app/appBackEnd
-WORKDIR /app/appBackEnd
+WORKDIR /app
 
 # Copier package.json et package-lock.json dans le répertoire de travail
-COPY appBackEnd/package*.json ./
+COPY package*.json ./
 
 # Installer les dépendances
 RUN npm install
 
 # Copier tout le contenu du backend dans le répertoire de travail
-COPY appBackEnd .
+COPY . .
 
 # Exposer le port 8080 pour l'application Express
-EXPOSE 8080
+EXPOSE 3000
 
 # Commande pour exécuter le serveur backend
 CMD ["node", "server.js"]
